@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.zee</groupId>
+	<artifactId>zee-scm</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.1.RELEASE</version>
+	</parent>
+
+	<properties>
+		<release-repo-url>http://39.108.62.60:8081/content/repositories/releases/</release-repo-url>
+		<snapshot-repo-url>http://39.108.62.60:8081/content/repositories/snapshots/</snapshot-repo-url>
+	</properties>
+
+	<modules>
+		<module>zee-scm-web</module>
+		<module>zee-scm-service</module>
+		<module>zee-scm-dao</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.zee</groupId>
+				<artifactId>zee-scm-web</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zee</groupId>
+				<artifactId>zee-scm-service</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zee</groupId>
+				<artifactId>zee-scm-dao</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+
+		</dependencies>
+	</dependencyManagement>
+
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Nexus Release Repository</name>
+			<url>${release-repo-url}</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>${snapshot-repo-url}</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>
